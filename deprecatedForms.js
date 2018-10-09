@@ -10,14 +10,11 @@ Ext.onReady(function(){
 
     Ext.QuickTips.init();
 
-    var bd = Ext.getBody();
-
     /*
      * ================  Simple form  =======================
      */
-    // bd.createChild({tag: 'h2', html: 'Form 1 - Very Simple'});
 
-    var simple = Ext.create('Ext.form.Panel', {
+    let simple = Ext.create('Ext.form.Panel', {
         url:'saveForm.php',
         frame:true,
         title: 'Form',
@@ -72,6 +69,3 @@ Ext.onReady(function(){
 
     simple.render(document.body);
 });
-
-
-
