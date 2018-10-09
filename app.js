@@ -24,11 +24,11 @@ Ext.onReady(function() {
     let trabajador = Ext.define('Trabajador', {
         extend: 'Ext.data.Model',
         fields: [
-            {name: 'company'},
-            {name: 'price',      type: 'float'},
-            {name: 'change',     type: 'string'},
-            {name: 'pctChange',  type: 'string'},
-            {name: 'lastChange', type: 'string'},
+            {name: 'tra_ide'},
+            {name: 'tra_cod',      type: 'float'},
+            {name: 'tra_nom',     type: 'string'},
+            {name: 'tra_pat',  type: 'string'},
+            {name: 'tra_mat', type: 'string'},
             {name: 'est_ado', type: 'number'}
          ]
     })
@@ -54,34 +54,34 @@ Ext.onReady(function() {
                 text     : 'tra_ide',
                 flex     : 1,
                 sortable : false,
-                dataIndex: 'company'
+                dataIndex: 'tra_ide'
             },
             {
-                text     : 'tra_cod',
+                text     : 'Codigo',
                 width    : 75,
                 sortable : true,
-                dataIndex: 'price'
+                dataIndex: 'tra_cod'
             },
             {
-                text     : 'tra_nom',
+                text     : 'Nombre',
                 width    : 75,
                 sortable : true,
-                dataIndex: 'change'
+                dataIndex: 'tra_nom'
             },
             {
-                text     : 'tra_pat',
+                text     : 'A. Paterno',
                 width    : 75,
                 sortable : true,
-                dataIndex: 'pctChange'
+                dataIndex: 'tra_pat'
             },
             {
-                text     : 'tra_mat',
+                text     : 'A. Materno',
                 width    : 85,
                 sortable : true,
-                dataIndex: 'lastChange'
+                dataIndex: 'tra_mat'
             },
             {
-                text     : 'est_ado',
+                text     : 'Estado',
                 width    : 85,
                 sortable : true,
                 dataIndex: 'est_ado'

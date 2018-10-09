@@ -2,20 +2,16 @@
 require_once 'db.php';
 
 $cnn = OpenDbConnection();
-$sql = <<<EOF
-    SELECT * FROM prueba.Trabajador;
-EOF;
 
-$ret = pg_query($cnn, $sql);
+$result = pg_prepare($cnn, "myquery", 'SELECT * FROM PRUEBA.TRABAJADOR');
+$result = pg_execute($cnn, "myquery", array());
+    if (!$result) {
+        echo "An error occurred.\n";
+        exit;
+    }
+$outp = pg_fetch_all($result);
 
-$i = 0;
-while($row = pg_fetch_row($ret)){
-    $myArr2[$i] = $row;
-    $i++;
-}
-
-$myJSON4 = json_encode($myArr2);
-echo $myJSON4;
+echo json_encode($outp);
 
 //if I close the connection the ajax call fails
 //status "Internal Server Error"
