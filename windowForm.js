@@ -46,7 +46,12 @@ function newWindow(dis, win, store){
                     // console.log(valores);
                     // console.log(dbParam);
 
-                    store.load();
+                    xmlhttp.onreadystatechange = function(){
+                        if(this.readyState == 4 &&
+                            this.status == 200){
+                                store.load();
+                            }
+                    }
                 }
             },
             {

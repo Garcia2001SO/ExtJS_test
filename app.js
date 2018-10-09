@@ -138,7 +138,12 @@ Ext.onReady(function() {
                             xmlhttp.open("GET", "deleteTrabajador.php?x=" + dbParam, true);
                             xmlhttp.send();
 
-                            store.sync();
+                            xmlhttp.onreadystatechange = function(){
+                                if(this.readyState == 4 &&
+                                    this.status == 200){
+                                        store.sync();
+                                    }
+                            }
                         }
                     }
                 });
@@ -155,16 +160,20 @@ Ext.onReady(function() {
     });
 
     grid.on('edit', function(e) {
-        // e.record.save();
         console.log('grid.on');
-        console.log(e.record);
-        console.log(e.record.data);
+        // console.log(e.record.data);
         let dbParam = JSON.stringify(e.record.data);
 
         let xmlhttp = new XMLHttpRequest();
+        
         xmlhttp.open("GET", "modificarTra.php?x=" + dbParam, true);
         xmlhttp.send();
-
-        store.sync();
+        
+        xmlhttp.onreadystatechange = function(){
+            if(this.readyState == 4 &&
+                this.status == 200){
+                    store.sync();
+                }
+        }
     });
 });
