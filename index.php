@@ -6,9 +6,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta charset="UTF-8" />  
     <title><?php echo $sn; ?></title>
-    <link rel="Shortcut Icon" href="images/sistema/siggo.ico" type="image/x-icon" />
+	<link rel="Shortcut Icon" href="images/sistema/siggo.ico" type="image/x-icon" />
 	<script src = "extjs/ext-all-debug-w-comments.js" type = "text/javascript"></script>
-	<script src="windowForm.js"></script>
+	<script src="windowForm.js" type = "text/javascript"></script>
     <script src = "getTrabajadores.js" type = "text/javascript"></script>
     <script src = "app.js" type = "text/javascript"></script>
 </head>
@@ -17,6 +17,5 @@
 		<link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
 		<link rel="stylesheet" type="text/css" href="extjs/example.css" />
 	</div>
-	<div id="grid-example"></div>
 </body>
 </html>

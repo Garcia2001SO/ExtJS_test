@@ -1,4 +1,4 @@
-function newWindow(dis, win){
+function newWindow(dis, win, store){
     if (!win) {
         win = Ext.create('widget.window', {
             title: 'Form',
@@ -43,22 +43,25 @@ function newWindow(dis, win){
                     let xmlhttp = new XMLHttpRequest();
                     xmlhttp.open("GET", "saveForm.php?x=" + dbParam, true);
                     xmlhttp.send();
-                    console.log(valores);
-                    console.log(dbParam);
+                    // console.log(valores);
+                    // console.log(dbParam);
+
+                    store.load();
                 }
             },
             {
                 xtype: 'button',
                 text: 'Cancelar',
                 handler: function(){
-                    console.log('Cancelar');
+                    // console.log('Cancelar');
                     // win.items.items.clear();
-                    console.log(win);
+                    // console.log(win);
 
                     // for(i=0; i<=3; i++){
                     //     win.items.items[i].value = "";
                     //     console.log(i);
                     // }
+                    win.hide(dis);
                 }
             }],
         });
