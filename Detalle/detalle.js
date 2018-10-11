@@ -254,8 +254,8 @@ Ext.onReady(function() {
                         text: 'Cancelar',
                         width: 100,
                         handler: function(){
-                            let frm = viewport.getComponent('item0').getComponent('forms').getComponent('form1');
-                            frm.hide();
+                            this.up('form').getForm().reset();
+                            this.up('form').hide();
                         }
                     }]
                 },{
@@ -311,6 +311,14 @@ Ext.onReady(function() {
                                         }
                                 }
                             }else { console.log('vacio');}
+                        }
+                    },{
+                        xtype: 'button',
+                        text: 'Cancelar',
+                        width: 100,
+                        handler: function(){
+                            this.up('form').getForm().reset();
+                            this.up('form').hide();
                         }
                     }]
                 }]
