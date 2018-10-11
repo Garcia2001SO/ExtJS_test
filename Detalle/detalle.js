@@ -111,7 +111,7 @@ Ext.onReady(function() {
                     tbar: [{
                         text: 'Nuevo',
                         handler: function(){
-                            let frm = viewport.getComponent('item0').getComponent('form1');
+                            let frm = viewport.getComponent('item0').getComponent('forms').getComponent('form1');
                             frm.show();
                         }
                     },{
@@ -181,93 +181,138 @@ Ext.onReady(function() {
                             dataIndex: 'est_ado',
                             width: 50
                         }
-                    ]
-                    }
+                    ],
+                    tbar: [{
+                        text: 'Agregar',
+                        handler: function(){
+                            let frm = viewport.getComponent('item0').getComponent('forms').getComponent('form2');
+                            frm.show();
+                        }
+                    }]}
                 ]
             },{
-                xtype: 'form',
-                itemId: 'form1',
-                title: 'Form',
+                itemId: 'forms',
                 columnWidth: 1/3,
-                closable: true,
-                closeAction: 'hide',
-                hidden: 'true',
-                layout: 'auto',
-                bodyStyle:'padding:15px 0 15px 15px',
-                fieldDefaults: {
-                    msgTarget: 'side',
-                    labelWidth: 100,
-                },
-                defaults: {
-                    anchor: '100%',
-                    width: 400
-                },
-                defaultType: 'textfield',
                 items:[{
-                    fieldLabel: 'Serie',
-                    name: 'ven_ser',
-                    allowBlank: false
-                },
-                {
-                    fieldLabel: 'Numero',
-                    name: 'ven_num',
-                    allowBlank: false
-                },
-                {
-                    fieldLabel: 'Cliente',
-                    name: 'ven_cli',
-                    allowBlank: false
-                },
-                {
-                    fieldLabel: 'Mon',
-                    name: 'ven_mon',
-                    allowBlank: false
-                },
-                {
-                    fieldLabel: 'Producto',
-                    name: 'v_d_pro',
-                    allowBlank: false
-                },
-                {
-                    fieldLabel: 'Precio Unitario',
-                    name: 'v_d_uni',
-                    allowBlank: false
-                },
-                {
-                    fieldLabel: 'Cantidad',
-                    name: 'v_d_can',
-                    allowBlank: false
-                },{
-                    xtype: 'button',
-                    text: 'Aceptar',
-                    width: 100,
-                    handler: function(){
-                        let val = viewport.getComponent('item0').getComponent('form1').getValues();
-                        let id = viewport.getComponent('item0').getComponent('grids').getComponent('gridCabecera').getStore().getTotalCount()+1;
+                    xtype: 'form',
+                    itemId: 'form1',
+                    title: 'Form1',
+                    closable: true,
+                    closeAction: 'hide',
+                    hidden: true,
+                    layout: 'auto',
+                    bodyStyle:'padding:15px 0 15px 15px',
+                    fieldDefaults: {
+                        msgTarget: 'side',
+                        labelWidth: 100,
+                    },
+                    defaults: {
+                        anchor: '100%',
+                        width: 400
+                    },
+                    defaultType: 'textfield',
+                    items:[{
+                        fieldLabel: 'Serie',
+                        name: 'ven_ser',
+                        allowBlank: false
+                    },
+                    {
+                        fieldLabel: 'Numero',
+                        name: 'ven_num',
+                        allowBlank: false
+                    },
+                    {
+                        fieldLabel: 'Cliente',
+                        name: 'ven_cli',
+                        allowBlank: false
+                    },
+                    {
+                        fieldLabel: 'Mon',
+                        name: 'ven_mon',
+                        allowBlank: false
+                    },{
+                        xtype: 'button',
+                        text: 'Aceptar',
+                        width: 100,
+                        handler: function(){
+                            let val = viewport.getComponent('item0').getComponent('forms').getComponent('form1').getValues();
 
-                        let dbParam = JSON.stringify(val);
-                        let xmlhttp1 = new XMLHttpRequest();
-                        let xmlhttp2 = new XMLHttpRequest();
-                        xmlhttp1.open("GET", "saveVenta.php?x=" + dbParam, true);
-                        xmlhttp1.send();
-                        xmlhttp2.open("GET", "saveVenta_Detalle.php?x=" + dbParam + "&y=" + id, true);
-                        xmlhttp2.send();
-    
-                        xmlhttp2.onreadystatechange = function(){
-                            if(this.readyState == 4 &&
-                                this.status == 200){
-                                    ventaStore.load();
-                                }
+                            let dbParam = JSON.stringify(val);
+                            let xmlhttp1 = new XMLHttpRequest();
+                            xmlhttp1.open("GET", "saveVenta.php?x=" + dbParam, true);
+                            xmlhttp1.send();
+        
+                            xmlhttp2.onreadystatechange = function(){
+                                if(this.readyState == 4 &&
+                                    this.status == 200){
+                                        ventaStore.load();
+                                    }
+                            }
                         }
-                    }
+                    },{
+                        xtype: 'button',
+                        text: 'Cancelar',
+                        width: 100,
+                        handler: function(){
+                            let frm = viewport.getComponent('item0').getComponent('forms').getComponent('form1');
+                            frm.hide();
+                        }
+                    }]
                 },{
-                    xtype: 'button',
-                    text: 'Cancelar',
-                    width: 100,
-                    handler: function(){
-                        let frm = viewport.getComponent('item0').getComponent('form1');
-                        frm.hide();
-                    }
+                    xtype: 'form',
+                    itemId: 'form2',
+                    title: 'Form2',
+                    closable: true,
+                    closeAction: 'hide',
+                    hidden: true,
+                    layout: 'auto',
+                    bodyStyle: 'padding: 15px 0 15px 15px',
+                    fieldDefaults: {
+                        msgTarget: 'side',
+                        labelWidth: 100,
+                    },
+                    defaults: {
+                        anchor: '100%',
+                        width: 400
+                    },
+                    defaultType: 'textfield',
+                    items:[{
+                        fieldLabel: 'Producto',
+                        name: 'v_d_pro',
+                        allowBlank: false
+                    },{
+                        fieldLabel: 'Precio Unitario',
+                        name: 'v_d_uni',
+                        allowBlank: false
+                    },{
+                        fieldLabel: 'Cantidad',
+                        name: 'v_d_can',
+                        allowBlank: false
+                    },{
+                        xtype: 'button',
+                        text: 'Aceptar',
+                        width: 100,
+                        handler: function(){
+                            let val = viewport.getComponent('item0').getComponent('forms').getComponent('form2').getValues();
+                            let gridCabecera = viewport.getComponent('item0').getComponent('grids').getComponent('gridCabecera');
+                            
+                            if(gridCabecera.getSelectionModel().getSelection().length !== 0){
+                                console.log('lleno');
+                                let id = gridCabecera.getSelectionModel().getSelection()[0].data.ven_ide;
+                                let dbParam = JSON.stringify(val);
+                                let xmlhttp = new XMLHttpRequest();
+                                xmlhttp.open("GET", "saveVenta_Detalle.php?x=" + dbParam + "&y=" + id, true);
+                                xmlhttp.send();
+    
+                                xmlhttp.onreadystatechange = function(){
+                                    if(this.readyState == 4 &&
+                                        this.status == 200){
+                                            detalleStore.load();
+                                        }
+                                }
+                            }else { console.log('vacio');}
+                        }
+                    }]
                 }]
             }]
         }]
