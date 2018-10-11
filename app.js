@@ -40,8 +40,8 @@ Ext.onReady(function() {
              type: 'ajax',
              url: 'getTrabajadores.php',
              reader: 'json'
-         },
-    })
+         }
+    });
 
     // create the data store
     let store = Ext.create('Ext.data.Store', {
@@ -124,7 +124,7 @@ Ext.onReady(function() {
             handler: function(){
                 rowEditing.cancelEdit();
 
-                var sm = grid.getSelectionModel();
+                let sm = grid.getSelectionModel();
                 Ext.Msg.show({
                     title:'¿Eliminar?',
                     msg: 'Esto eliminara a un usuario ¿Quiere continuar?',

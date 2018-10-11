@@ -43,8 +43,6 @@ function newWindow(dis, win, store){
                     let xmlhttp = new XMLHttpRequest();
                     xmlhttp.open("GET", "saveForm.php?x=" + dbParam, true);
                     xmlhttp.send();
-                    // console.log(valores);
-                    // console.log(dbParam);
 
                     xmlhttp.onreadystatechange = function(){
                         if(this.readyState == 4 &&
