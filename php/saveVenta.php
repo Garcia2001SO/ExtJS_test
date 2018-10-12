@@ -1,5 +1,5 @@
 <?php
-require_once '../db.php';
+require_once 'db.php';
 
 $cnn = OpenDbConnection();
 $obj = json_decode($_GET["x"]);

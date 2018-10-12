@@ -44,7 +44,7 @@ function newWindow(dis, win, store){
 
                         let dbParam = JSON.stringify(valores);
                         let xmlhttp = new XMLHttpRequest();
-                        xmlhttp.open("GET", "saveForm.php?x=" + dbParam, true);
+                        xmlhttp.open("GET", "php/saveForm.php?x=" + dbParam, true);
                         xmlhttp.send();
 
                         xmlhttp.onreadystatechange = function(){

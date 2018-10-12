@@ -28,7 +28,7 @@ Ext.onReady(function() {
         ],
         proxy: {
             type: 'ajax',
-            url: 'getVenta.php',
+            url: 'php/getVenta.php',
             reader: 'json'
         }
     });
@@ -130,7 +130,7 @@ Ext.onReady(function() {
                                         let dbParam = JSON.stringify(sm.getSelection()[0].data);
 
                                         let xmlhttp = new XMLHttpRequest();
-                                        xmlhttp.open("GET", "deleteVenta.php?x=" + dbParam, true);
+                                        xmlhttp.open("GET", "php/deleteVenta.php?x=" + dbParam, true);
                                         xmlhttp.send();
             
                                         xmlhttp.onreadystatechange = function(){
@@ -239,10 +239,10 @@ Ext.onReady(function() {
 
                             let dbParam = JSON.stringify(val);
                             let xmlhttp1 = new XMLHttpRequest();
-                            xmlhttp1.open("GET", "saveVenta.php?x=" + dbParam, true);
+                            xmlhttp1.open("GET", "php/saveVenta.php?x=" + dbParam, true);
                             xmlhttp1.send();
         
-                            xmlhttp2.onreadystatechange = function(){
+                            xmlhttp1.onreadystatechange = function(){
                                 if(this.readyState == 4 &&
                                     this.status == 200){
                                         ventaStore.load();
@@ -301,7 +301,7 @@ Ext.onReady(function() {
                                 let id = gridCabecera.getSelectionModel().getSelection()[0].data.ven_ide;
                                 let dbParam = JSON.stringify(val);
                                 let xmlhttp = new XMLHttpRequest();
-                                xmlhttp.open("GET", "saveVenta_Detalle.php?x=" + dbParam + "&y=" + id, true);
+                                xmlhttp.open("GET", "php/saveVenta_Detalle.php?x=" + dbParam + "&y=" + id, true);
                                 xmlhttp.send();
     
                                 xmlhttp.onreadystatechange = function(){
@@ -333,7 +333,7 @@ Ext.onReady(function() {
 
         myProxy = {
             type: 'ajax',
-            url: 'selectGridCabecera.php?x=' + dbParam,
+            url: 'php/selectGridCabecera.php?x=' + dbParam,
             reader: 'json'
         }
 

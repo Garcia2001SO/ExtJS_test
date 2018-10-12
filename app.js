@@ -38,7 +38,7 @@ Ext.onReady(function() {
          ],
          proxy: {
              type: 'ajax',
-             url: 'getTrabajadores.php',
+             url: 'php/getTrabajadores.php',
              reader: 'json'
          }
     });
@@ -135,7 +135,7 @@ Ext.onReady(function() {
                             let dbParam = JSON.stringify(sm.getSelection()[0].data);
 
                             let xmlhttp = new XMLHttpRequest();
-                            xmlhttp.open("GET", "deleteTrabajador.php?x=" + dbParam, true);
+                            xmlhttp.open("GET", "php/deleteTrabajador.php?x=" + dbParam, true);
                             xmlhttp.send();
 
                             xmlhttp.onreadystatechange = function(){
@@ -166,7 +166,7 @@ Ext.onReady(function() {
 
         let xmlhttp = new XMLHttpRequest();
         
-        xmlhttp.open("GET", "modificarTra.php?x=" + dbParam, true);
+        xmlhttp.open("GET", "php/modificarTra.php?x=" + dbParam, true);
         xmlhttp.send();
         
         xmlhttp.onreadystatechange = function(){

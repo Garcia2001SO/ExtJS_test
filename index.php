@@ -9,7 +9,7 @@
 	<link rel="Shortcut Icon" href="images/sistema/siggo.ico" type="image/x-icon" />
 	<script src = "extjs/ext-all-debug-w-comments.js" type = "text/javascript"></script>
 	<script src="windowForm.js" type = "text/javascript"></script>
-    <script src = "getTrabajadores.js" type = "text/javascript"></script>
+    <!-- <script src = "getTrabajadores.js" type = "text/javascript"></script> -->
     <script src = "app.js" type = "text/javascript"></script>
 </head>
 <body>
